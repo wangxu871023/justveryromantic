@@ -1,0 +1,58 @@
+{
+  "珍": {
+    "code": "3700",
+    "coordinates": [44, 8, 1]
+  },
+  "有": {
+    "code": "2250",
+    "coordinates": [33, 23, 6]
+  },
+  "拥": {
+    "code": "9620",
+    "coordinates": [30, 27, 23]
+  },
+  "一": {
+    "code": "2980",
+    "coordinates": [13, 30, 19]
+  },
+  "香": {
+    "code": "1780",
+    "coordinates": [12, 28, 29]
+  },
+  "惜": {
+    "code": "1920",
+    "coordinates": [32, 20, 23]
+  },
+  "威": {
+    "code": "4470",
+    "coordinates": [15, 25, 18]
+  },
+  "算": {
+    "code": "2600",
+    "coordinates": [43, 7, 11]
+  },
+  "切": {
+    "code": "0060",
+    "coordinates": [1, 21, 17]
+  },
+  "没": {
+    "code": "0480",
+    "coordinates": [41, 5, 19]
+  },
+  "就": {
+    "code": "1560",
+    "coordinates": [42, 6, 17]
+  },
+  "杰": {
+    "code": "3820",
+    "coordinates": [14, 19, 13]
+  },
+  "尔": {
+    "code": "4760",
+    "coordinates": [45, 8, 27]
+  },
+  "稻": {
+    "code": "4510",
+    "coordinates": [5, 26, 12]
+  }
+}
