@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>规则核心A</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-5xl w-full">
+        <h1 class="text-2xl font-bold text-center mb-8 text-gray-800">规则核心A</h1>
+        
+        <!-- 第一行：基础数字 -->
+        <div class="mb-6 p-4 border border-gray-200 rounded bg-blue-50 transition-all duration-300 hover:shadow-md">
+            <h2 class="text-lg font-semibold mb-4 text-blue-700"><i class="fa fa-hashtag mr-2"></i>基础数字</h2>
+            <table class="w-full text-center" id="baseNumbersTable">
+                <!-- 由JS动态生成 -->
+            </table>
+        </div>
+        
+        <!-- 第二行：乱数规则 -->
+        <div class="mb-6 p-4 border border-gray-200 rounded bg-green-50 transition-all duration-300 hover:shadow-md">
+            <h2 class="text-lg font-semibold mb-4 text-green-700"><i class="fa fa-random mr-2"></i>乱数规则</h2>
+            <table class="w-full text-center" id="randomNumbersTable">
+                <!-- 由JS动态生成 -->
+            </table>
+        </div>
+        
+        <!-- 第三行：加密结果 -->
+        <div class="p-4 border border-gray-200 rounded bg-purple-50 transition-all duration-300 hover:shadow-md">
+            <h2 class="text-lg font-semibold mb-4 text-purple-700"><i class="fa fa-lock mr-2"></i>加密结果</h2>
+            <table class="w-full text-center" id="encryptedNumbersTable">
+                <!-- 由JS动态生成 -->
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // 数字数据 - 使用JSON格式存储
+        const numberData = {
+            baseNumbers: [
+                ["3700", "1920", "2980", "0060", "3820", "4470", "4760"],
+                ["1560", "2600", "0480", "2250", "4510", "1780", "9620", "2250"]
+            ],
+            randomNumbers: [
+                ["2428", "0646", "1606", "9785", "2547", "3191", "3480"],
+                ["0280", "1329", "9100", "1973", "3230", "0408", "8349", "1973"]
+            ],
+            encryptedNumbers: [
+                ["6128", "2566", "4586", "9845", "6367", "7661", "8240"],
+                ["1840", "3929", "9580", "4223", "7740", "2188", "17969", "4223"]
+            ]
+        };
+
+        // 生成表格内容的函数
+        function generateTableContent(data, tableId, borderColor) {
+            const table = document.getElementById(tableId);
+            let tableHTML = "<tbody>";
+            
+            // 遍历每一行数据
+            data.forEach(row => {
+                tableHTML += "<tr>";
+                
+                // 遍历每个单元格数据
+                row.forEach(cell => {
+                    tableHTML += `<td class="py-3 px-4 border ${borderColor} text-lg transition-all hover:bg-opacity-20">${cell}</td>`;
+                });
+                
+                tableHTML += "</tr>";
+            });
+            
+            tableHTML += "</tbody>";
+            table.innerHTML = tableHTML;
+        }
+
+        // 页面加载完成后生成表格
+        document.addEventListener("DOMContentLoaded", () => {
+            generateTableContent(numberData.baseNumbers, "baseNumbersTable", "border-blue-100 hover:bg-blue-100");
+            generateTableContent(numberData.randomNumbers, "randomNumbersTable", "border-green-100 hover:bg-green-100");
+            generateTableContent(numberData.encryptedNumbers, "encryptedNumbersTable", "border-purple-100 hover:bg-purple-100");
+        });
+    </script>
+</body>
+</html>
