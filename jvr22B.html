@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>justveryromantic</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .code-table {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-table th,
+    .code-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .code-table th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .code-table tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .hanzi-column {
+      width: 20%;
+      font-size: 1.2em;
+    }
+
+    .code-column {
+      width: 80%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>汉字编码表</h1>
+  <table class="code-table">
+    <thead>
+      <tr>
+        <th>汉字</th>
+        <th>编码（规则）</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- 表格内容将通过JavaScript动态生成 -->
+    </tbody>
+  </table>
+
+  <script>
+    // 汉字编码数据
+    const hanziData = {
+  "珍": {
+    "code": "8760",
+    "coordinates": [29, 28, 7]
+  },
+  "有": {
+    "code": "5320",
+    "coordinates": [26, 4, 23]
+  },
+  "拥": {
+    "code": "8920",
+    "coordinates": [19, 30, 3]
+  },
+  "一": {
+    "code": "6760",
+    "coordinates": [47, 18, 7]
+  },
+  "香": {
+    "code": "4350",
+    "coordinates": [25, 24, 6]
+  },
+  "惜": {
+    "code": "8980",
+    "coordinates": [49, 10, 9]
+  },
+  "威": {
+    "code": "2280",
+    "coordinates": [43, 3, 9]
+  },
+  "算": {
+    "code": "3560",
+    "coordinates": [24, 16, 27]
+  },
+  "切": {
+    "code": "5820",
+    "coordinates": [36, 29, 3]
+  },
+  "没": {
+    "code": "8610",
+    "coordinates": [49, 17, 12]
+  },
+  "就": {
+    "code": "1240",
+    "coordinates": [12, 23, 25]
+  },
+  "杰": {
+    "code": "3750",
+    "coordinates": [24, 8, 6]
+  },
+  "尔": {
+    "code": "3440",
+    "coordinates": [44, 15, 15]
+  },
+  "稻": {
+    "code": "9660",
+    "coordinates": [30, 17, 7]
+  }
+};
+
+    // 获取表格主体元素
+    const tableBody = document.getElementById('tableBody');
+
+    // 遍历数据并生成表格行
+    for (const [hanzi, info] of Object.entries(hanziData)) {
+      // 创建表格行
+      const row = document.createElement('tr');
+
+      // 创建汉字列
+      const hanziCell = document.createElement('td');
+      hanziCell.className = 'hanzi-column';
+      hanziCell.textContent = hanzi;
+      row.appendChild(hanziCell);
+
+      // 创建编码和坐标列
+      const codeCell = document.createElement('td');
+      codeCell.className = 'code-column';
+      // 格式化显示：code（coordinates）
+      codeCell.textContent = `${info.code} (${info.coordinates.join(', ')})`;
+      row.appendChild(codeCell);
+
+      // 将行添加到表格
+      tableBody.appendChild(row);
+    }
+  </script>
+</body>
+
+</html>
